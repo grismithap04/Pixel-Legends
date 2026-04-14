@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Legends — Game Character Store</title>
+  <link rel="stylesheet" href="pxl.css">
+</head>
+<body>
+
+<header>
+  <nav id="navbar">
+    <a href="#hero" class="brand">PIXEL LEGENDS</a>
+    <ul class="nav-links">
+      <li><a href="#characters" class="nav-link">Browse</a></li>
+      <li><a href="#orders-panel" class="nav-link" id="orders-nav-btn">Orders</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <video autoplay muted loop id="heroVideo" playsinline>
+    <source src="assets/hero-video.webm" type="video/webm">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">⚔️ THE ULTIMATE COLLECTION</span>
+    <h1>Collect<br>Legendary<br>Characters</h1>
+    <p>Choose your warrior. Build your squad. Conquer the arena.</p>
+    <a href="#characters" class="btn">Browse Characters ↓</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <h2>Every Legend Has a Story</h2>
+    <p>From fearless pirates to mystical elven archers, each character is forged with unique abilities and a backstory worth discovering. Collect them all and assemble the ultimate squad.</p>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section id="characters">
+  <div class="section-header">
+    <h2>Choose Your Fighter</h2>
+    <p class="section-sub">Legendary characters, each with unique powers</p>
+  </div>
+  <div class="grid">
+    <div class="card" data-name="Iron Hook" data-type="Tank" data-price="9.99">
+      <div class="card-img-wrap"><img src="assets/iron hook.png" alt="Iron Hook"></div>
+      <div class="card-info">
+        <h3>Iron Hook</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Tank</span></p>
+        <div class="card-footer"><span class="price">$9.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Scarlett Blade" data-type="Rogue" data-price="8.99">
+      <div class="card-img-wrap"><img src="assets/scarlett blade.png" alt="Scarlett Blade"></div>
+      <div class="card-info">
+        <h3>Scarlett Blade</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Rogue</span></p>
+        <div class="card-footer"><span class="price">$8.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Nita &amp; Bruce" data-type="Brawler" data-price="11.99">
+      <div class="card-img-wrap"><img src="assets/nita & bruce.png" alt="Nita & Bruce"></div>
+      <div class="card-info">
+        <h3>Nita &amp; Bruce</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Brawler</span></p>
+        <div class="card-footer"><span class="price">$11.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Sylvan Arrow" data-type="Archer" data-price="7.99">
+      <div class="card-img-wrap"><img src="assets/sylvan arrow.png" alt="Sylvan Arrow"></div>
+      <div class="card-info">
+        <h3>Sylvan Arrow</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Archer</span></p>
+        <div class="card-footer"><span class="price">$7.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Hog Hammer" data-type="Warrior" data-price="10.99">
+      <div class="card-img-wrap"><img src="assets/hog hammer.png" alt="Hog Hammer"></div>
+      <div class="card-info">
+        <h3>Hog Hammer</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Warrior</span></p>
+        <div class="card-footer"><span class="price">$10.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Explorer Jack" data-type="Adventurer" data-price="6.99">
+      <div class="card-img-wrap"><img src="assets/explorer jack.png" alt="Explorer Jack"></div>
+      <div class="card-info">
+        <h3>Explorer Jack</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Adventurer</span></p>
+        <div class="card-footer"><span class="price">$6.99</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+    <div class="card" data-name="Sailor Bulk" data-type="Tank" data-price="9.49">
+      <div class="card-img-wrap"><img src="assets/sailor bulk.png" alt="Sailor Bulk"></div>
+      <div class="card-info">
+        <h3>Sailor Bulk</h3>
+        <p class="card-meta">Pixel Legends · <span class="card-type">Tank</span></p>
+        <div class="card-footer"><span class="price">$9.49</span><button class="get-btn" onclick="openModal(this)">Get It →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL & ORDERS PANEL -->
+<div id="modal-overlay" class="modal-overlay hidden" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img id="modal-img" src="" alt="Character">
+    <h3 id="modal-name"></h3>
+    <p id="modal-type" class="modal-type"></p>
+    <div class="modal-form">
+      <input type="text" id="modal-buyer" placeholder="Your Name" required>
+      <input type="number" id="modal-qty" min="1" value="1" oninput="updateTotal()">
+      <div class="modal-pricing"><span>Price <strong id="modal-unit-price"></strong></span><span>Total <strong id="modal-total"></strong></span></div>
+      <button class="btn-confirm" onclick="confirmPurchase()">Confirm Purchase →</button>
+    </div>
+    <p class="modal-success hidden" id="modal-success">✅ Order placed successfully!</p>
+  </div>
+</div>
+
+<div id="orders-panel" class="orders-panel hidden">
+  <div class="orders-header"><h2>Your Orders</h2><button class="orders-close" onclick="closeOrders()">✕</button></div>
+  <div id="orders-list"><p class="no-orders">No orders yet</p></div>
+  <div class="orders-footer">
+    <p id="orders-success-msg" class="orders-success hidden">✅ Order placed successfully!</p>
+    <div class="orders-footer-row"><span>Total</span><strong id="orders-total">$0.00</strong></div>
+    <button onclick="orderNow()" class="btn">Order Now →</button>
+  </div>
+</div>
+<div class="orders-backdrop hidden" id="orders-backdrop" onclick="closeOrders()"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="brand-text">PIXEL LEGENDS</span><p>Collect. Battle. Conquer.</p></div>
+    <nav class="footer-nav"><a href="#hero">Home</a><a href="#characters">Characters</a><a href="#about">About</a></nav>
+  </div>
+  <p class="footer-copy">that was a replica</p>
+</footer>
+
+<script>
+  let modalPrice = 0, orders = [];
+
+  function openModal(btn) {
+    const card = btn.closest('.card');
+    const price = parseFloat(card.dataset.price);
+    modalPrice = price;
+    document.getElementById('modal-img').src = card.querySelector('img').src;
+    document.getElementById('modal-name').textContent = card.dataset.name;
+    document.getElementById('modal-type').textContent = card.dataset.type;
+    document.getElementById('modal-unit-price').textContent = `$${price.toFixed(2)}`;
+    document.getElementById('modal-qty').value = 1;
+    document.getElementById('modal-buyer').value = '';
+    document.getElementById('modal-success').classList.add('hidden');
+    document.getElementById('modal-total').textContent = `$${price.toFixed(2)}`;
+    document.getElementById('modal-overlay').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); }
+  function updateTotal() { document.getElementById('modal-total').textContent = `$${(modalPrice * (parseInt(document.getElementById('modal-qty').value) || 1)).toFixed(2)}`; }
+
+  function confirmPurchase() {
+    const buyer = document.getElementById('modal-buyer').value.trim();
+    if (!buyer) { document.getElementById('modal-buyer').focus(); return; }
+    orders.push({
+      name: document.getElementById('modal-name').textContent,
+      type: document.getElementById('modal-type').textContent,
+      buyer, qty: parseInt(document.getElementById('modal-qty').value) || 1,
+      price: modalPrice, total: modalPrice * (parseInt(document.getElementById('modal-qty').value) || 1),
+      img: document.getElementById('modal-img').src
+    });
+    renderOrders();
+    document.getElementById('modal-success').classList.remove('hidden');
+    setTimeout(closeModal, 1500);
+  }
+
+  function renderOrders() {
+    const list = document.getElementById('orders-list');
+    if (!orders.length) { list.innerHTML = '<p class="no-orders">No orders yet</p>'; document.getElementById('orders-total').textContent = '$0.00'; return; }
+    let total = 0;
+    list.innerHTML = orders.map((o, i) => (total += o.total, `<div class="order-item"><img src="${o.img}"><div class="order-info"><strong>${o.name}</strong><span>${o.type} · ${o.buyer}</span><span>Qty: ${o.qty} · $${o.total.toFixed(2)}</span></div><button class="order-remove" onclick="removeOrder(${i})">✕</button></div>`)).join('');
+    document.getElementById('orders-total').textContent = `$${total.toFixed(2)}`;
+  }
+
+  function removeOrder(i) { orders.splice(i, 1); renderOrders(); }
+  function openOrders() { document.getElementById('orders-panel').classList.remove('hidden'); document.getElementById('orders-backdrop').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+  function closeOrders() { document.getElementById('orders-panel').classList.add('hidden'); document.getElementById('orders-backdrop').classList.add('hidden'); document.body.style.overflow = ''; }
+  document.getElementById('orders-nav-btn').addEventListener('click', (e) => { e.preventDefault(); openOrders(); });
+
+  function orderNow() {
+    if (!orders.length) { closeOrders(); setTimeout(() => document.getElementById('characters').scrollIntoView({ behavior: 'smooth' }), 280); return; }
+    const msg = document.getElementById('orders-success-msg');
+    msg.classList.remove('hidden');
+    setTimeout(() => { orders = []; renderOrders(); msg.classList.add('hidden'); closeOrders(); }, 2000);
+  }
+
+  // Scroll handlers
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
+    document.querySelector('header').classList.toggle('scrolled', window.scrollY > 100);
+  });
+</script>
+</body>
+</html>
